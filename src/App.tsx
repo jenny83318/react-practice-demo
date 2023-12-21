@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-interface MyButtonProps {
-  /** The text to display inside the button */
-  title: string;
-  /** Whether the button can be interacted with */
-  disabled: boolean;
+import React, { useState} from 'react';
+export interface Props {
+  title?: string;
+  disabled?: boolean;
 }
-
-function MyButton({ title, disabled }: MyButtonProps) {
-  return (
-    <button disabled={disabled}>{title}</button>
-  );
-}
-
-export default function MyApp() {
+function MyApp({ title, disabled=true }: Props) {
   return (
     <div>
       <h1>Welcome to my app</h1>
-      <MyButton title="I'm a disabled button" disabled={true}/>
+      <button disabled={disabled}>{title}</button>
     </div>
   );
 }
+
+export default MyApp;
